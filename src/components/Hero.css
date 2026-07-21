@@ -1,0 +1,210 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+  overflow: hidden;
+  background: var(--bg-base);
+}
+
+/* ─── 3D Canvas ─── */
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero__canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ─── Fallback ─── */
+.hero__canvas-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__fallback-pipeline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0.3;
+}
+
+.hero__fallback-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.hero__fallback-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.hero__fallback-dot--cyan  { background: var(--cyan); }
+.hero__fallback-dot--lime  { background: var(--lime); }
+.hero__fallback-dot--amber { background: var(--amber); }
+
+/* ─── Content ─── */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-20);
+  width: 100%;
+}
+
+.hero__text {
+  max-width: 680px;
+}
+
+/* ─── Labels ─── */
+.hero__pre-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  margin-bottom: var(--space-5);
+}
+
+.hero__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* ─── Name ─── */
+.hero__name {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+/* ─── Tagline ─── */
+.hero__tagline {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: var(--space-8);
+  max-width: 520px;
+}
+
+/* ─── Pipeline labels ─── */
+.hero__pipeline-labels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.hero__stage {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.hero__stage-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.hero__stage-dot--cyan  { background: var(--cyan); }
+.hero__stage-dot--lime  { background: var(--lime); }
+.hero__stage-dot--amber { background: var(--amber); }
+
+.hero__stage-arrow {
+  color: var(--border-hover);
+  margin-left: var(--space-1);
+}
+
+/* ─── Actions ─── */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.hero__btn-icon {
+  padding: 10px 12px;
+}
+
+/* ─── Availability ─── */
+.hero__availability {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero__avail-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+  flex-shrink: 0;
+  animation: pulse-dot 3s ease-in-out infinite;
+}
+
+/* ─── Scroll hint ─── */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--border-hover));
+  margin-inline: auto;
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50%       { opacity: 0.8; transform: scaleY(1.15); }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .hero__text { max-width: 100%; }
+  .hero__actions { gap: var(--space-2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__status-dot,
+  .hero__avail-dot,
+  .hero__scroll-line { animation: none; }
+}

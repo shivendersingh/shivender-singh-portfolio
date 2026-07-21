@@ -1,0 +1,114 @@
+.et {
+  border-top: 1px solid var(--border);
+}
+
+.et__timeline {
+  margin-top: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.et__item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--space-5);
+}
+
+/* ─── Timeline line ─── */
+.et__line-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.et__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-hover);
+  border: 1px solid var(--border-hover);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.et__dot--active {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cyan) 20%, transparent);
+}
+
+.et__connector {
+  width: 1px;
+  flex: 1;
+  background: var(--border);
+  min-height: 24px;
+}
+
+/* ─── Content ─── */
+.et__content {
+  padding-bottom: var(--space-8);
+}
+
+.et__item:last-child .et__content { padding-bottom: 0; }
+
+.et__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.et__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.et__company {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.et__period {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--bg-muted);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.et__current {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+}
+
+/* ─── Highlights ─── */
+.et__highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.et__highlight {
+  display: flex;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.et__highlight-dash {
+  color: var(--cyan-dim);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
